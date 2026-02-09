@@ -13,11 +13,11 @@ void loop() {
     // put your main code here, to run repeatedly:
     digitalWrite(13, HIGH);   // Turn on the LED
 
-    delay(100);              // Wait for two seconds
+    delay(2000);              // Wait for two seconds
 
     digitalWrite(13, LOW);    // Turn off the LED
 
-    delay(5000);              // Wait for two seconds
+    delay(2000);              // Wait for two seconds
 
 }
 
