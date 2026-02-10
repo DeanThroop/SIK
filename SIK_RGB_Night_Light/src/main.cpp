@@ -22,11 +22,22 @@ int RedPin = 9;
 int GreenPin = 10;
 int BluePin = 11;
 
+void turnOff () {
+    //set all three LED pins to 0 or OFF
+    analogWrite(RedPin, 0);
+    analogWrite(GreenPin, 0);
+    analogWrite(BluePin, 0);
+}
+
 void red () {
     //set the LED pins to values that make red
     analogWrite(RedPin, 100);
     analogWrite(GreenPin, 0);
     analogWrite(BluePin, 0);
+
+    delay(1000);
+
+    turnOff();
 }
 
 void orange () {
@@ -71,13 +82,6 @@ void magenta () {
     analogWrite(BluePin, 100);
 }
 
-void turnOff () {
-    //set all three LED pins to 0 or OFF
-    analogWrite(RedPin, 0);
-    analogWrite(GreenPin, 0);
-    analogWrite(BluePin, 0);
-}
-
 void setup() {
     Serial.begin(9600);           //start a serial connection with the computer
 
@@ -118,5 +122,5 @@ void loop() {
     else {                                //if it isn't dark turn the LED off
         turnOff();                            //call the turn off function
     }
-        delay(100);                             //short delay so that the printout is easier to read
+        delay(1000);                             //short delay so that the printout is easier to read
 }
