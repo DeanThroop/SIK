@@ -34,10 +34,6 @@ void red () {
     analogWrite(RedPin, 100);
     analogWrite(GreenPin, 0);
     analogWrite(BluePin, 0);
-
-    delay(1000);
-
-    turnOff();
 }
 
 void orange () {
@@ -118,6 +114,10 @@ void loop() {
             blue();
         if (potentiometer > 900)
             magenta();
+
+        delay(1000);    //leaving the light on for x
+
+        turnOff();      //turn off the light...it will blink :)
     }
     else {                                //if it isn't dark turn the LED off
         turnOff();                            //call the turn off function
