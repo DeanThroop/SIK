@@ -10,6 +10,7 @@
     View circuit diagram and instructions at: https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v41
     Download drawings and code at: https://github.com/sparkfun/SIK-Guide-Code
 */
+#include <Arduino.h>
 
 int photoresistor = 0;              //this variable will hold a value based on the brightness of the ambient light
 int threshold = 750;                //if the photoresistor reading is below this value the the light will turn on
