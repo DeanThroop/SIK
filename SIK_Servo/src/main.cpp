@@ -21,6 +21,8 @@ Servo myservo;              //create a servo object
 
 void setup() {
 
+    Serial.begin(9600);       //start a serial connection with the computer
+
     myservo.attach(9);        //tell the servo object that its servo is plugged into pin 9
 
 }
@@ -30,6 +32,8 @@ void loop() {
 
 
     potPosition = analogRead(A0);                     //use analog read to measure the position of the potentiometer (0-1023)
+
+    Serial.println(potPosition);
 
     servoPosition = map(potPosition, 0, 1023, 20, 160); //convert the potentiometer number to a servo position from 20-160
                                                         //Note: its best to avoid driving the little SIK servos all the
