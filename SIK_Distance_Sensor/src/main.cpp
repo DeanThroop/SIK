@@ -63,10 +63,10 @@ void loop() {
 
     if (distance <= 10) {                       //if the object is close
 
-    //make the RGB LED red
-    analogWrite(redPin, 255);
-    analogWrite(greenPin, 0);
-    analogWrite(bluePin, 0);
+        //make the RGB LED red
+        analogWrite(redPin, 255);
+        analogWrite(greenPin, 0);
+        analogWrite(bluePin, 0);
 
     } else if (10 < distance && distance < 20) { //if the object is a medium distance
 
