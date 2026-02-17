@@ -21,6 +21,27 @@ const int bluePin = 6;            //pin to control the blue LED inside the RGB L
 
 float distance = 0;               //stores the distance measured by the distance sensor
 
+//------------------FUNCTIONS-------------------------------
+
+//RETURNS THE DISTANCE MEASURED BY THE HC-SR04 DISTANCE SENSOR
+float getDistance()
+{
+    float echoTime;                   //variable to store the time it takes for a ping to bounce off an object
+    float calculatedDistance;         //variable to store the distance calculated from the echo time
+
+    //send out an ultrasonic pulse that's 10ms long
+    digitalWrite(trigPin, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(trigPin, LOW);
+
+    echoTime = pulseIn(echoPin, HIGH);      //use the pulsein command to see how long it takes for the
+                                            //pulse to bounce back to the sensor
+
+    calculatedDistance = echoTime / 148.0;  //calculate the distance of the object that reflected the pulse (half the bounce time multiplied by the speed of sound)
+
+    return calculatedDistance;              //send back the distance that was calculated
+}
+
 void setup()
 {
     Serial.begin (9600);        //set up a serial connection with the computer
@@ -63,25 +84,4 @@ void loop() {
     }
 
     delay(50);      //delay 50ms between each reading
-}
-
-//------------------FUNCTIONS-------------------------------
-
-//RETURNS THE DISTANCE MEASURED BY THE HC-SR04 DISTANCE SENSOR
-float getDistance()
-{
-    float echoTime;                   //variable to store the time it takes for a ping to bounce off an object
-    float calculatedDistance;         //variable to store the distance calculated from the echo time
-
-    //send out an ultrasonic pulse that's 10ms long
-    digitalWrite(trigPin, HIGH);
-    delayMicroseconds(10);
-    digitalWrite(trigPin, LOW);
-
-    echoTime = pulseIn(echoPin, HIGH);      //use the pulsein command to see how long it takes for the
-                                            //pulse to bounce back to the sensor
-
-    calculatedDistance = echoTime / 148.0;  //calculate the distance of the object that reflected the pulse (half the bounce time multiplied by the speed of sound)
-
-return calculatedDistance;              //send back the distance that was calculated
 }
